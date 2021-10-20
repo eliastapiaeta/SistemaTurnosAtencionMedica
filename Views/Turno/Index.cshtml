@@ -1,0 +1,91 @@
+@model Turnos.Models.Turno
+@Html.AntiForgeryToken()
+@{
+    ViewBag.Title = "Asignación de Turnos";
+}
+
+<div class="row">
+    <div class="col s6">
+        <label asp-for="IdMedico">Médico</label>
+        <select asp-for="IdMedico" asp-items="ViewBag.IdMedico" oldvalue=""></select>
+    </div>
+    <div class="col s6">
+        <label asp-for="IdPaciente">Paciente</label>
+        <select asp-for="IdPaciente" asp-items="ViewBag.IdPaciente"></select>
+    </div>
+</div>
+
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" style="display: none; content: none;" id="id_modalTurno" href="#ModalTurno">Modal</a>
+
+<br />
+<div id="ModalTurno" class="modal bottom-sheet">
+    <div class="modal-content">
+        <h4>Turno</h4>
+        <form>
+            <div>
+                <input id="id_turno" name="id_turno" type="hidden" value_id="">
+
+                <label for="">Inicio</label>
+                <input type="text" id="txtFechaHoraInicio" readonly />
+            </div>
+            <div>
+                <label for="">Fin</label>
+                <input type="text" id="txtFechaHoraFin" readonly />
+            </div>
+            <div>
+                <label for="">Paciente</label>
+                <input type="text" id="txtPaciente" readonly />
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <a href="#" id="btnEliminar" class="modal-close waves-effect waves-red btn-flat">Eliminar</a>
+        <a href="#" id="btnGuardar" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
+        <a href="#" id="btnCerrar" class="modal-close waves-effect waves-gray btn-flat">Cerrar</a>
+    </div>
+</div>
+
+<figure>
+    @* <img src="~/img/mapa.png" class="mapa" alt=""> *@
+    <figcaption>
+        <i class="icono fas fa-map-marker" id="icono"></i>
+        <div class="tooltip" id="tooltip">
+            <div class="contentDetail">
+                <div class="thumb">
+                    <img src="~/img/torre-eiffel.png" alt="">
+                </div>
+                <div class="info">
+                    <h6 class="titulo">Nombre del paciente</h6>
+                    <p class="direccion">Villa siempre verde #500, Curicó</p>
+                    <p class="resumen">
+                        edad: ### <br />
+                        Previsón: Fonasa o Isapre <br />
+                        R.U.T: XX.XXX.XXX-X <br />
+                        Fono : +56 9 87654567
+                    </p>
+                    <div class="contenedor-btn">
+                        <input type="checkbox" id="switch" /><label class="isContacted" for="switch">OK!</label>
+                        <button>VER</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </figcaption>
+</figure>
+
+<div id="miniTooltip" class="miniTooltip_inactivo">
+    <p>Más info</p>
+</div>
+
+<div id="CalendarioTurnos"></div>
+
+<link rel="stylesheet" href="~/fullcalendar/lib/main.css">
+<link rel="stylesheet" href="~/css/turno_calendarPage.css">
+@section Scripts {
+<script src="~/lib/moment.js/2.9.0/moment.js"></script>
+<script src="~/fullcalendar/lib/main.js"></script>
+<script src="~/fullcalendar/lib/locales/es.js"></script>
+<script src="~/js/turno_calendarPage.js"></script>
+}

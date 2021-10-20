@@ -1,0 +1,34 @@
+@model IEnumerable<Turnos.Models.Paciente>
+
+<p>
+    <a asp-action="Create">Nuevo</a>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th> @Html.DisplayNameFor(modelo => modelo.Nombre) </th>
+            <th> @Html.DisplayNameFor(modelo => modelo.Apellido) </th>
+            <th> @Html.DisplayNameFor(modelo => modelo.Direccion) </th>
+            <th> @Html.DisplayNameFor(modelo => modelo.Telefono) </th>
+            <th> @Html.DisplayNameFor(modelo => modelo.Email) </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var items in Model)
+        {
+            <tr>
+                <td> @Html.DisplayFor(modeloItem => items.Nombre) </td>
+                <td> @Html.DisplayFor(modeloItem => items.Apellido) </td>
+                <td> @Html.DisplayFor(modeloItem => items.Direccion) </td>
+                <td> @Html.DisplayFor(modeloItem => items.Telefono) </td>
+                <td> @Html.DisplayFor(modeloItem => items.Email) </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@items.IdPaciente">Editar</a>
+                    <a asp-action="Details" asp-route-id="@items.IdPaciente">Detalle</a>
+                    <a asp-action="Delete" asp-route-id="@items.IdPaciente">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

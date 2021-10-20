@@ -1,0 +1,59 @@
+@model Turnos.Models.Paciente
+
+<head>
+    <h3>¿Está usted seguro de obliterar (olvidar/borrar) el siguiente registro?</h3>
+</head>
+<hr />
+<div>
+    <dl>
+        
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.Nombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.Nombre)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.Apellido)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.Apellido)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.Direccion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.Direccion)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.Telefono)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.Telefono)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.Email)
+        </dd>
+    </dl>
+    <hr />
+    <ul class="nav justify-content-end">
+        <li class="nav-item mx-2">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="IdPaciente" />
+                <input class="btn btn-primary" type="submit" value="Obliterar">
+            </form>
+        </li>
+        <li class="nav-item">
+            <a asp-action="Index">
+                <button type="button" class="btn btn-outline-primary">Volver</button>
+            </a>
+        </li>
+    </ul>
+</div>

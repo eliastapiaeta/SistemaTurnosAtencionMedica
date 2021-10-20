@@ -1,0 +1,30 @@
+@model Turnos.Models.Especialidad
+
+<head>
+    <h3>¿Está usted seguro de obliterar (olvidar/borrar) el siguiente registro?</h3>
+</head>
+<hr />
+<div>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.Descripcion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.Descripcion)
+        </dd>
+    </dl>
+    <hr />
+    <ul class="nav justify-content-end">
+        <li class="nav-item mx-2">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="IdEspecialidad" />
+                <input class="btn btn-primary" type="submit" value="Obliterar">
+            </form>
+        </li>
+        <li class="nav-item">
+            <a asp-action="Index">
+                <button type="button" class="btn btn-outline-primary">Volver</button>
+            </a>
+        </li>
+    </ul>
+</div>
